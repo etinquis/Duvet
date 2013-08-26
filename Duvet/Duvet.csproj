@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C670BB10-789E-4425-97DE-5FA4BB9AF907}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Duvet</RootNamespace>
+    <AssemblyName>dotCoverageConverter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.Coverage.Analysis">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\PrivateAssemblies\Microsoft.VisualStudio.Coverage.Analysis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoverageStatCoverter.cs" />
+    <Compile Include="Generic\SourceFile.cs" />
+    <Compile Include="Generic\SourceLine.cs" />
+    <Compile Include="Interfaces\ICoverable.cs" />
+    <Compile Include="Interfaces\ICoverageStats.cs" />
+    <Compile Include="Interfaces\ISourceNamespace.cs" />
+    <Compile Include="Interfaces\ISourceAssembly.cs" />
+    <Compile Include="Interfaces\ISourceClass.cs" />
+    <Compile Include="Interfaces\ISourceFile.cs" />
+    <Compile Include="Interfaces\ISourceLine.cs" />
+    <Compile Include="Interfaces\ISourceLanguage.cs" />
+    <Compile Include="Interfaces\CoverageLevel.cs" />
+    <Compile Include="Interfaces\ISourceMethod.cs" />
+    <Compile Include="Output\HTML\TeamCity\Pages\IndexTeamCityHtmlReportPageContent.cs" />
+    <Compile Include="Output\HTML\TeamCity\Pages\SourceAssemblyTeamCityHtmlReportPageContent.cs" />
+    <Compile Include="Output\HTML\TeamCity\Pages\SourceNamespaceTeamCityHtmlReportPageContent.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VSDotCoverage\SourceAssembly.cs" />
+    <Compile Include="Output\HTML\TeamCity\Pages\ITeamCityHtmlReportPageContent.cs" />
+    <Compile Include="Output\HTML\TeamCity\Pages\SourceFileTeamCityHtmlReportPageContent.cs" />
+    <Compile Include="Output\HTML\TeamCity\TeamCityHtmlReportPage.cs" />
+    <Compile Include="Output\HTML\TeamCity\TeamCityHtmlReportPathResolver.cs" />
+    <Compile Include="Output\HTML\TeamCity\TeamCitySourceNamespaceHtmlReport.cs" />
+    <Compile Include="Output\HTML\TeamCity\TeamCityHtmlReport.cs" />
+    <Compile Include="Output\HTML\TeamCity\TeamCitySourceFileHtmlReport.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourceLanguageInferrer.cs" />
+    <Compile Include="VSDotCoverage\CoverageDsParser.cs" />
+    <Compile Include="VSDotCoverage\CoverageStats.cs" />
+    <Compile Include="VSDotCoverage\LineCoverageConverter.cs" />
+    <Compile Include="VSDotCoverage\SourceClass.cs" />
+    <Compile Include="VSDotCoverage\SourceFile.cs" />
+    <Compile Include="VSDotCoverage\SourceMethod.cs" />
+    <Compile Include="VSDotCoverage\SourceNamespace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coverage.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idea.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highlight.pack.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

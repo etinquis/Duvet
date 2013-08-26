@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>"C:\Users\myork.CORPORATE\Projects\briefcase-common\generated_vs11\TestResults\ab6dbbc5-00c2-4c93-aaf3-5285297067f6\MYork_MYORK-LT 2013-08-25 12_40_15.coverage"</StartArguments>
+  </PropertyGroup>
+</Project>
