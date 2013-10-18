@@ -141,9 +141,9 @@ namespace Duvet
                 coveredMethods += (coverage > MethodCoverageThreshold) ? 1 : 0;
             }
 
-            float blockCoverage = ((uint) ((coveredBlocks*TwoDecimalPlaces)/totalBlocks))/10000f;
-            float lineCoverage = ((uint)((coveredLines * TwoDecimalPlaces) / totalLines)) / 10000f;
-            float methodCoverage = ((uint)((coveredMethods * TwoDecimalPlaces) / totalMethods)) / 10000f;
+            float blockCoverage = totalBlocks == 0 ? 0 : ((uint)((coveredBlocks * TwoDecimalPlaces) / totalBlocks)) / 10000f;
+            float lineCoverage = totalLines == 0 ? 0 : ((uint)((coveredLines * TwoDecimalPlaces) / totalLines)) / 10000f;
+            float methodCoverage = totalMethods == 0 ? 0 : ((uint)((coveredMethods * TwoDecimalPlaces) / totalMethods)) / 10000f;
 
             XmlDocument doc = new XmlDocument();
             XmlElement rootElement = doc.CreateElement("build");
